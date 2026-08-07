@@ -130,11 +130,12 @@
   }
   .plainlinks a{
     display:flex;
+    justify-content:center;
     align-items:baseline;
     gap: 10px;
     text-decoration:none;
     color: var(--ink);
-    padding: 14px 4px;
+    padding: 14px 10px;
     position: relative;
   }
   .plainlinks a:focus-visible{
@@ -152,7 +153,7 @@
     transition: color .18s ease;
   }
   .leader{
-    flex:1;
+    flex: 0 0 44px;
     border-bottom: 2px dotted var(--gold);
     opacity: 0.5;
     transform: translateY(-4px);
