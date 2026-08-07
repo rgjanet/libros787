@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Libros787 — Enlaces</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;0,900;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --green: #00473d;
+    --gold: #b58b3d;
+    --cream: #f6f1e6;
+    --ink: #1c1a15;
+    --terracotta: #a8552e;
+    --teal: #3d6b74;
+  }
+
+  *{ box-sizing: border-box; }
+
+  html, body{
+    margin:0;
+    padding:0;
+    background: var(--cream);
+    color: var(--ink);
+    min-height: 100vh;
+  }
+
+  body{
+    font-family: 'Lato', sans-serif;
+    display:flex;
+    align-items:flex-start;
+    justify-content:center;
+    padding: 0 0 70px;
+  }
+
+  .page{
+    width:100%;
+    max-width: 480px;
+  }
+
+  .brand-band{
+    background: var(--green);
+    padding: 46px 20px 40px;
+    text-align:center;
+    margin-bottom: 34px;
+    box-shadow: 0 4px 0 var(--gold);
+  }
+
+  .logo{
+    width: 150px;
+    height:auto;
+    margin: 0 auto 18px;
+    display:block;
+  }
+
+  .content{
+    padding: 0 20px;
+  }
+
+  header{
+    text-align:center;
+    margin-bottom: 34px;
+  }
+
+  .foil-rule{
+    width: 64px;
+    height: 3px;
+    background: var(--gold);
+    margin: 0 auto 14px;
+    border-radius: 2px;
+  }
+
+  .tagline{
+    font-style: italic;
+    font-size: 14.5px;
+    color: var(--cream);
+    opacity: 0.9;
+    margin: 0;
+    letter-spacing: 0.01em;
+  }
+
+  /* hero video below the brand band */
+  .hero{
+    margin-bottom: 30px;
+    border: 3px solid var(--gold);
+    border-radius: 4px;
+    overflow:hidden;
+    box-shadow: 0 6px 16px rgba(28,26,21,0.18);
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background: var(--ink);
+  }
+  .hero iframe{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    border:0;
+    display:block;
+  }
+
+  /* secondary, plain-text list for full clarity + easy scanning below the shelf */
+  .list-title{
+    font-weight: 900;
+    font-size: 12px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin: 0 0 12px;
+    text-align:center;
+  }
+
+  ul.plainlinks{
+    list-style:none;
+    margin: 0 0 36px;
+    padding:0;
+    border-top: 1px solid rgba(0,71,61,0.15);
+  }
+  .plainlinks li{
+    border-bottom: 1px solid rgba(0,71,61,0.15);
+  }
+  .plainlinks a{
+    display:flex;
+    align-items:baseline;
+    gap: 10px;
+    text-decoration:none;
+    color: var(--ink);
+    padding: 13px 4px;
+    position: relative;
+  }
+  .plainlinks a:focus-visible{
+    outline: 2px solid var(--green);
+    outline-offset: -2px;
+  }
+  .link-label{
+    font-weight: 700;
+    font-size: 11px;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--green);
+    white-space: nowrap;
+    flex-shrink:0;
+    transition: color .18s ease;
+  }
+  .leader{
+    flex:1;
+    border-bottom: 2px dotted var(--gold);
+    opacity: 0.5;
+    transform: translateY(-4px);
+    transition: opacity .18s ease;
+  }
+  .link-value{
+    font-weight: 700;
+    font-size: 15.5px;
+    color: var(--ink);
+    white-space: nowrap;
+    position:relative;
+  }
+  .link-value::after{
+    content:"";
+    position:absolute;
+    left:0; right:0; bottom:-2px;
+    height: 2px;
+    background: var(--gold);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform .22s ease;
+  }
+  .plainlinks a:hover .link-value::after,
+  .plainlinks a:focus-visible .link-value::after{
+    transform: scaleX(1);
+  }
+  .plainlinks a:hover .link-label,
+  .plainlinks a:focus-visible .link-label{
+    color: var(--terracotta);
+  }
+  .plainlinks a:hover .leader{
+    opacity: 1;
+  }
+  .link-value.email{
+    font-size: 14px;
+    letter-spacing: 0.005em;
+  }
+
+  /* En el aire: podcast / video plates */
+  .plate{ margin-bottom: 20px; }
+  .plate-frame{
+    border: 1.5px solid var(--green);
+    border-radius: 4px;
+    padding: 12px;
+    background: #fff;
+    position: relative;
+  }
+  .plate-frame::before, .plate-frame::after{
+    content:"";
+    position:absolute;
+    width: 10px; height: 10px;
+    border-top: 2px solid var(--gold);
+    border-left: 2px solid var(--gold);
+    top: -2px; left: -2px;
+  }
+  .plate-frame::after{
+    top:auto; left:auto; bottom:-2px; right:-2px;
+    border-top:none; border-left:none;
+    border-bottom: 2px solid var(--gold);
+    border-right: 2px solid var(--gold);
+  }
+  .plate-media{ width:100%; }
+  .plate-media audio{ width:100%; display:block; }
+  .plate-media.video{
+    position:relative; width:100%; aspect-ratio: 16/9;
+    overflow:hidden; background: var(--ink); border-radius: 2px;
+  }
+  .plate-media.video iframe{
+    position:absolute; inset:0; width:100%; height:100%; border:0;
+  }
+  .plate-caption{
+    margin-top: 8px;
+    font-weight: 700;
+    font-size: 12.5px;
+    letter-spacing: 0.03em;
+    color: var(--green);
+  }
+
+  /* Hoja de contacto: gallery */
+  .sheet-grid{
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 6px;
+    margin: 0 0 30px;
+  }
+  .sheet-frame{
+    position:relative;
+    aspect-ratio: 1/1;
+    overflow:hidden;
+    border-radius: 3px;
+    border: none;
+    padding:0;
+    cursor:pointer;
+    background: var(--green);
+  }
+  .sheet-frame img{
+    width:100%; height:100%; object-fit:cover; display:block;
+    transition: transform .3s ease;
+  }
+  .sheet-frame:hover img, .sheet-frame:focus-visible img{ transform: scale(1.07); }
+  .sheet-frame:focus-visible{ outline: 2px solid var(--green); outline-offset: 2px; }
+
+  #lightbox{
+    position:fixed; inset:0; background: rgba(28,26,21,0.95);
+    display:none; align-items:center; justify-content:center;
+    padding: 30px 20px; z-index: 100;
+  }
+  #lightbox.active{ display:flex; }
+  #lightbox img{ max-width: 92vw; max-height: 80vh; object-fit:contain; border-radius: 3px; }
+  #lightbox .lb-close{
+    position:absolute; top: 18px; right: 22px;
+    font-weight: 700; font-size: 12px; letter-spacing: 0.06em;
+    color: var(--cream); background:none; border: 1px solid var(--cream);
+    padding: 7px 12px; border-radius: 3px; cursor:pointer;
+  }
+  #lightbox .lb-close:hover{ background: var(--cream); color: var(--ink); }
+
+  /* Recortes de prensa */
+  .clipping{
+    background: #fff;
+    border-left: 4px solid var(--gold);
+    border-radius: 2px;
+    padding: 14px 16px;
+    margin-bottom: 14px;
+    box-shadow: 0 2px 6px rgba(28,26,21,0.08);
+  }
+  .clip-source{
+    display:flex; justify-content:space-between; align-items:baseline;
+    font-size: 11px; font-weight: 700; letter-spacing: 0.05em;
+    text-transform:uppercase; margin: 0 0 8px;
+  }
+  .clip-source .pub{ color: var(--terracotta); }
+  .clip-source .date{ color: var(--green); opacity: 0.6; }
+  .clip-headline{
+    font-weight: 900; font-size: 17px; line-height: 1.25;
+    color: var(--ink); margin: 0 0 8px;
+  }
+  .clip-excerpt{
+    font-size: 13.5px; line-height: 1.55; color: var(--ink); opacity: 0.75;
+    margin: 0 0 10px;
+  }
+  .clip-read{
+    font-weight: 700; font-size: 12px; letter-spacing: 0.04em;
+    color: var(--green); text-decoration:none; border-bottom: 2px solid var(--gold);
+    padding-bottom: 1px;
+  }
+
+  footer{
+    text-align:center;
+    padding-top: 18px;
+    border-top: 1px solid rgba(0,71,61,0.15);
+  }
+  footer p{
+    font-size: 11.5px;
+    letter-spacing: 0.05em;
+    color: var(--green);
+    opacity: 0.7;
+    margin:0;
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .link-value::after, .leader{ transition:none !important; }
+  }
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <div class="brand-band">
+    <img class="logo" src="https://cdn.shopify.com/s/files/1/2482/2494/files/libros-stacked-blanco_x250_2802bb5c-b4cc-48b2-8f47-36e08d808e6d.png?v=1786112502" alt="Libros787">
+    <div class="foil-rule"></div>
+    <p class="tagline">Librería en línea</p>
+  </div>
+
+  <p class="list-title">Todos los enlaces</p>
+
+  <!-- EDITAR: misma lista en formato de texto plano, por claridad y accesibilidad -->
+  <ul class="plainlinks">
+    <li><a href="https://libros787.com" target="_blank" rel="noopener">
+      <span class="link-label">Tienda</span><span class="leader"></span><span class="link-value">libros787.com</span>
+    </a></li>
+    <li><a href="https://libros787.com/blogs/podcast/" target="_blank" rel="noopener">
+      <span class="link-label">Podcast</span><span class="leader"></span><span class="link-value">Libros787 Podcast</span>
+    </a></li>
+    <li><a href="https://libros787.com/blogs/autores-y-editoriales-independientes" target="_blank" rel="noopener">
+      <span class="link-label">Autores</span><span class="leader"></span><span class="link-value">Conoce el programa</span>
+    </a></li>
+    <li><a href="https://libros787.com/blogs/libro-abierto" target="_blank" rel="noopener">
+      <span class="link-label">Newsletter</span><span class="leader"></span><span class="link-value">Libro Abierto</span>
+    </a></li>
+    <li><a href="mailto:escritores@libros787.com">
+      <span class="link-label">Email</span><span class="leader"></span><span class="link-value email">escritores@libros787.com</span>
+    </a></li>
+    <li><a href="https://instagram.com/libros787" target="_blank" rel="noopener">
+      <span class="link-label">Instagram</span><span class="leader"></span><span class="link-value">@libros787</span>
+    </a></li>
+    <li><a href="https://tiktok.com/@libros787" target="_blank" rel="noopener">
+      <span class="link-label">TikTok</span><span class="leader"></span><span class="link-value">@libros787</span>
+    </a></li>
+  </ul>
+
+  <p class="list-title">En el aire</p>
+
+  <div class="plate">
+    <div class="plate-frame">
+      <div class="plate-media video">
+        <iframe src="https://archive.org/download/julio-axel-final/julio%20axel%20final.mp4" title="Video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+    </div>
+    <p class="plate-caption">Video destacado</p>
+  </div>
+
+  <p class="list-title">Desde la librería</p>
+
+  <!-- EDITAR: fotos de eventos, autores en visita, el espacio físico, etc. -->
+  <div class="sheet-grid">
+    <button class="sheet-frame" onclick="openLightbox('https://tu-dominio.com/fotos/01.jpg')"><img src="https://tu-dominio.com/fotos/01.jpg" alt="Foto 1" loading="lazy"></button>
+    <button class="sheet-frame" onclick="openLightbox('https://tu-dominio.com/fotos/02.jpg')"><img src="https://tu-dominio.com/fotos/02.jpg" alt="Foto 2" loading="lazy"></button>
+    <button class="sheet-frame" onclick="openLightbox('https://tu-dominio.com/fotos/03.jpg')"><img src="https://tu-dominio.com/fotos/03.jpg" alt="Foto 3" loading="lazy"></button>
+  </div>
+
+  <p class="list-title">En el blog</p>
+
+  <!-- EDITAR: reemplaza publicación, fecha, titular, resumen y enlace. Copia el bloque para añadir más -->
+  <div class="clipping">
+    <p class="clip-source"><span class="pub">Libros787.com</span><span class="date">22 jul 2026</span></p>
+    <h3 class="clip-headline">Entre el miedo y la valentía: la novela de Carla Torres Dávila sobre lo que vemos y callamos</h3>
+    <p class="clip-excerpt">Hay historias que nacen de encuentros casuales. En el caso de Carla Torres Dávila, consejera profesional y autora de la novela ¿De qué lado estás?, comenzó con un desayuno en la Feria del Libro de Guadalajara. Allí, otra autora le recordó que en Puerto Rico existían certámenes literarios, instándole a participar. </p>
+    <a class="clip-read" href="https://libros787.com/blogs/podcast/entre-el-miedo-y-la-valentia-la-novela-de-carla-torres-davila-sobre-lo-que-vemos-y-callamos" target="_blank" rel="noopener">Leer nota →</a>
+  </div>
+  <div class="clipping">
+    <p class="clip-source"><span class="pub">Libros787.com</span><span class="date">22 jul 2026</span></p>
+    <h3 class="clip-headline">Podcast y newsletter: dos formatos que puedes incorporar a tu plataforma de autor</h3>
+    <p class="clip-excerpt">La plataforma de autor es una herramienta útil para todo autor independiente que comparte su muchachito literario al mundo. Dos formatos que puedes explorar para incorporar a tu plataforma de autor y mercadear tu libro son el podcast y la newsletter.</p>
+    <a class="clip-read" href="https://libros787.com/blogs/podcast/podcast-y-newsletter-dos-formatos-que-puedes-incorporar-a-tu-plataforma-de-autor" target="_blank" rel="noopener">Leer nota →</a>
+  </div>
+  <div class="clipping">
+    <p class="clip-source"><span class="pub">Libros787.com</span><span class="date">24 jun 2026</span></p>
+    <h3 class="clip-headline">"Aquí ya hay un jardín" gana el 14to Premio El Barco de Vapor</h3>
+    <p class="clip-excerpt">La escritora y editora Mariana González se convirtió en la ganadora de la décimo cuarta edición del Premio El Barco de Vapor Puerto Rico, uno de los principales galardones de la literatura infantil otorgados por la Fundación SM.</p>
+    <a class="clip-read" href="https://libros787.com/blogs/libros787/aqui-ya-hay-un-jardin-gana-el-14to-premio-el-barco-de-vapor" target="_blank" rel="noopener">Leer nota →</a>
+  </div>
+
+  <footer>
+    <p>Libros787.com · librería digital en Puerto Rico</p>
+  </footer>
+
+  </div>
+
+  <div id="lightbox" onclick="if(event.target===this) closeLightbox()">
+    <button class="lb-close" onclick="closeLightbox()">cerrar ✕</button>
+    <img id="lightbox-img" src="" alt="">
+  </div>
+
+  <script>
+    function openLightbox(src){
+      document.getElementById('lightbox-img').src = src;
+      document.getElementById('lightbox').classList.add('active');
+    }
+    function closeLightbox(){
+      document.getElementById('lightbox').classList.remove('active');
+      document.getElementById('lightbox-img').src = '';
+    }
+    document.addEventListener('keydown', function(e){
+      if(e.key === 'Escape') closeLightbox();
+    });
+  </script>
+
+</div>
+
+</body>
+</html>
