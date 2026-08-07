@@ -108,6 +108,40 @@
     display:block;
   }
 
+  /* profile: photo, name, title below the brand band */
+  .profile{
+    margin-bottom: 26px;
+    text-align:center;
+  }
+  .profile-photo{
+    width: 128px;
+    height: 128px;
+    border-radius: 50%;
+    overflow:hidden;
+    margin: 0 auto 14px;
+    border: 4px solid var(--gold);
+    box-shadow: 0 6px 16px rgba(28,26,21,0.18);
+  }
+  .profile-photo img{
+    width:100%;
+    height:100%;
+    object-fit: cover;
+    display:block;
+  }
+  .profile-name{
+    font-weight: 900;
+    font-size: 21px;
+    color: var(--green);
+    margin: 0 0 4px;
+  }
+  .profile-title{
+    font-style: italic;
+    font-size: 14px;
+    color: var(--ink);
+    opacity: 0.75;
+    margin: 0;
+  }
+  
   /* secondary, plain-text list for full clarity + easy scanning below the shelf */
   .list-title{
     font-weight: 900;
@@ -328,6 +362,14 @@
     <img class="logo" src="https://cdn.shopify.com/s/files/1/2482/2494/files/libros-stacked-blanco_x250_2802bb5c-b4cc-48b2-8f47-36e08d808e6d.png?v=1786112502" alt="Libros787">
     <div class="foil-rule"></div>
     <p class="tagline">Librería en línea</p>
+  </div>
+
+    <div class="profile">
+    <div class="profile-photo">
+      <img src="https://cdn.shopify.com/s/files/1/2482/2494/files/Janet_Rodriguez_2.png?v=1784213982" alt="Janet Rodríguez">
+    </div>
+    <p class="profile-name">Janet Rodríguez</p>
+    <p class="profile-title">Author Relations y asistente, Libros787.com</p>
   </div>
 
   <p class="list-title">Todos los enlaces</p>
