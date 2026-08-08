@@ -87,27 +87,6 @@
     letter-spacing: 0.01em;
   }
 
-  /* hero video below the brand band */
-  .hero{
-    margin-bottom: 22px;
-    border: 3px solid var(--gold);
-    border-radius: 4px;
-    overflow:hidden;
-    box-shadow: 0 6px 16px rgba(28,26,21,0.18);
-    position: relative;
-    width: 100%;
-    aspect-ratio: 16 / 9;
-    background: var(--ink);
-  }
-  .hero iframe{
-    position:absolute;
-    inset:0;
-    width:100%;
-    height:100%;
-    border:0;
-    display:block;
-  }
-
   /* profile: photo, name, title below the brand band */
   .profile{
     margin-bottom: 26px;
@@ -141,7 +120,7 @@
     opacity: 0.75;
     margin: 0;
   }
-  
+
   /* secondary, plain-text list for full clarity + easy scanning below the shelf */
   .list-title{
     font-weight: 900;
@@ -258,6 +237,25 @@
   }
   .plate-media.video iframe{
     position:absolute; inset:0; width:100%; height:100%; border:0;
+  }
+  .plate-media.video.portrait{
+    aspect-ratio: 9/16;
+    max-width: 260px;
+    margin: 0 auto;
+  }
+  /* Instagram's embed widget includes its own header/caption chrome and
+     sizes itself — it must not be force-stretched into an aspect-ratio box */
+  .plate-media.instagram{
+    width:100%;
+    max-width: 328px;
+    margin: 0 auto;
+  }
+  .plate-media.instagram iframe{
+    position: static;
+    width: 100%;
+    height: 600px;
+    border: 0;
+    display:block;
   }
   .plate-caption{
     margin-top: 8px;
