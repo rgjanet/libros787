@@ -334,7 +334,8 @@
     height:100%;
     display:block;
   }
-  .ia-facade img{
+  .ia-facade img,
+  .ia-facade video{
     width:100%;
     height:100%;
     object-fit:cover;
@@ -436,8 +437,9 @@
     overflow:hidden;
     box-shadow: 0 16px 44px rgba(0,0,0,0.5);
   }
-  .video-modal-inner iframe{
-    position:absolute; inset:0; width:100%; height:100%; border:0;
+  .video-modal-inner iframe,
+  .video-modal-inner video{
+    position:absolute; inset:0; width:100%; height:100%; border:0; object-fit:contain; background:#000;
   }
   #video-modal .lb-close{
     position:absolute; top: 18px; right: 22px;
@@ -565,19 +567,22 @@
   <div class="plate">
     <div class="plate-frame bare">
       <div class="plate-media video portrait">
-        <button class="ia-facade" type="button" onclick="abrirVideoPopup(this)" data-src="https://archive.org/embed/llegamos-a-los-100-rev-2/" aria-label="Reproducir video">
-          <img src="https://cdn.shopify.com/s/files/1/2482/2494/files/0731_2.png?v=1786313907" alt="" loading="lazy">
+        <button class="ia-facade" type="button" onclick="abrirVideoPopup(this)" data-src="https://archive.org/download/llegamos-a-los-100-rev-2/llegamos%20a%20los%20100%20rev%202.mp4" aria-label="Reproducir video">
+          <!-- EDITAR: por ahora el preview usa el video completo en bucle. Si tienes
+               un clip corto (5-10 segundos, sin audio) recortado del mismo video,
+               súbelo y reemplaza el src de abajo para que cargue más liviano. -->
+          <video class="preview-video" autoplay muted loop playsinline preload="auto">
+            <source src="https://archive.org/download/llegamos-a-los-100-rev-2/llegamos%20a%20los%20100%20rev%202.mp4" type="video/mp4">
+          </video>
           <span class="play-btn">▶</span>
           <span class="overlay-text">
             <span class="overlay-eyebrow">Reel</span>
-            <span class="overlay-title">Llegamos a los 100 autores y editoriales independientes</span>
+            <span class="overlay-title">¡Llegamos a los 100! Celebrando 100 autores independientes en Libros787.com</span>
           </span>
         </button>
       </div>
     </div>
     <a class="plate-link" href="https://libros787.com/blogs/autores-y-editoriales-independientes" target="_blank" rel="noopener">Conoce el programa →</a>
-  </div>
-
   </div>
   <br>
 
