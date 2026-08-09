@@ -583,7 +583,7 @@
           <span class="play-btn">▶</span>
           <span class="overlay-text">
             <span class="overlay-eyebrow">Reel</span>
-            <span class="overlay-title">¡Llegamos a los 100! Celebrando 100 autores independientes en Libros787.com</span>
+            <span class="overlay-title">¡Llegamos a los 100! Celebrando 100 autores independientes en Libros787</span>
           </span>
         </button>
       </div>
@@ -639,7 +639,7 @@
 
   </div>
 
-  <div id="lightbox" onclick="if(event.target===this) closeLightbox()">
+   <div id="lightbox" onclick="if(event.target===this) closeLightbox()">
     <button class="lb-close" onclick="closeLightbox()">cerrar ✕</button>
     <img id="lightbox-img" src="" alt="">
   </div>
@@ -654,12 +654,21 @@
       const src = btn.getAttribute('data-src');
       const wrap = document.getElementById('video-modal-inner');
       wrap.innerHTML = '';
-      const iframe = document.createElement('iframe');
-      iframe.src = src;
-      iframe.title = 'Video en Internet Archive';
-      iframe.allowFullscreen = true;
-      wrap.appendChild(iframe);
+      const video = document.createElement('video');
+      video.src = src;
+      video.controls = true;
+      video.playsInline = true;
+      wrap.appendChild(video);
       document.getElementById('video-modal').classList.add('active');
+      const playPromise = video.play();
+      if (playPromise !== undefined){
+        playPromise.catch(function(){
+          // some browsers block autoplay with sound even on a click —
+          // fall back to a muted autoplay so it still starts moving
+          video.muted = true;
+          video.play();
+        });
+      }
     }
     function cerrarVideoPopup(){
       document.getElementById('video-modal').classList.remove('active');
