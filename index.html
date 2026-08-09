@@ -429,17 +429,23 @@
   #video-modal.active{ display:flex; }
   .video-modal-inner{
     position:relative;
-    width: 100%;
-    max-width: 340px;
-    aspect-ratio: 9 / 16;
-    background: #000;
+    max-width: 92vw;
+    max-height: 84vh;
     border-radius: 6px;
     overflow:hidden;
     box-shadow: 0 16px 44px rgba(0,0,0,0.5);
+    line-height: 0;
   }
-  .video-modal-inner iframe,
+  .video-modal-inner iframe{
+    width: 340px; height: 605px; border:0; display:block; background:#000;
+  }
   .video-modal-inner video{
-    position:absolute; inset:0; width:100%; height:100%; border:0; object-fit:contain; background:#000;
+    display:block;
+    max-width: 92vw;
+    max-height: 84vh;
+    width:auto;
+    height:auto;
+    background:#000;
   }
   #video-modal .lb-close{
     position:absolute; top: 18px; right: 22px;
