@@ -229,6 +229,31 @@
     border-bottom: 2px solid var(--gold);
     border-right: 2px solid var(--gold);
   }
+  /* modifier: no border, no background, no corner marks — used when the
+     embed itself already looks intentional and doesn't need a frame */
+  .plate-frame.bare{
+    border: none;
+    background: transparent;
+    padding: 0;
+  }
+  .plate-frame.bare::before,
+  .plate-frame.bare::after{
+    display: none;
+  }
+  .plate-link{
+    display:inline-flex;
+    align-items:baseline;
+    gap:4px;
+    margin-top: 10px;
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--green);
+    text-decoration:none;
+    border-bottom: 2px solid var(--gold);
+    padding-bottom: 2px;
+  }
   .plate-media{ width:100%; }
   .plate-media audio{ width:100%; display:block; }
   .plate-media.video{
@@ -237,6 +262,10 @@
   }
   .plate-media.video iframe{
     position:absolute; inset:0; width:100%; height:100%; border:0;
+  }
+  .plate-media.video video{
+    position:absolute; inset:0; width:100%; height:100%;
+    object-fit: cover; display:block; background: var(--ink);
   }
   .plate-media.video.portrait{
     aspect-ratio: 9/16;
@@ -309,9 +338,19 @@
     background: #fff;
     border-left: 4px solid var(--gold);
     border-radius: 2px;
-    padding: 14px 16px;
+    overflow: hidden;
     margin-bottom: 14px;
     box-shadow: 0 2px 6px rgba(28,26,21,0.08);
+  }
+  .clip-image{
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    display: block;
+    background: var(--ink);
+  }
+  .clip-body{
+    padding: 14px 16px;
   }
   .clip-source{
     display:flex; justify-content:space-between; align-items:baseline;
@@ -407,10 +446,11 @@
   <div class="plate">
     <div class="plate-frame">
       <div class="plate-media video portrait">
-        <iframe src="https://archive.org/download/articulo-carla-720/arti%CC%81culo%20carla%20720.mp4" title="Video en Internet Archive" allowfullscreen></iframe>
+            <p class="plate-caption" align="center">¿Alguna vez viste algo incorrecto y callaste? 👀</p>
+        <iframe src="https://archive.org/download/articulo-carla-720/arti%CC%81culo%20carla%20720.mp4" title="Artículo: Carla Torres Dávila" allowfullscreen></iframe>
+            <a class="plate-link" href="https://libros787.com/blogs/podcast/entre-el-miedo-y-la-valentia-la-novela-de-carla-torres-davila-sobre-lo-que-vemos-y-callamos" target="_blank" rel="noopener">Lee la entrevista en Libros787.com →</a>
       </div>
     </div>
-    <p class="plate-caption">¿Alguna vez viste algo incorrecto y callaste? 👀</p>
   </div>
 
   <p class="list-title">Desde la librería</p>
@@ -426,18 +466,21 @@
 
   <!-- EDITAR: reemplaza publicación, fecha, titular, resumen y enlace. Copia el bloque para añadir más -->
   <div class="clipping">
+    <img class="clip-image" src="https://cdn.shopify.com/s/files/1/2482/2494/files/Carla_Torres_Davila.png?v=1785978297" alt="">
     <p class="clip-source"><span class="pub">Libros787.com</span><span class="date">22 jul 2026</span></p>
     <h3 class="clip-headline">Entre el miedo y la valentía: la novela de Carla Torres Dávila sobre lo que vemos y callamos</h3>
     <p class="clip-excerpt">Hay historias que nacen de encuentros casuales. En el caso de Carla Torres Dávila, consejera profesional y autora de la novela ¿De qué lado estás?, comenzó con un desayuno en la Feria del Libro de Guadalajara. Allí, otra autora le recordó que en Puerto Rico existían certámenes literarios, instándole a participar. </p>
     <a class="clip-read" href="https://libros787.com/blogs/podcast/entre-el-miedo-y-la-valentia-la-novela-de-carla-torres-davila-sobre-lo-que-vemos-y-callamos" target="_blank" rel="noopener">Leer nota →</a>
   </div>
   <div class="clipping">
+    <img class="clip-image" src="https://cdn.shopify.com/s/files/1/2482/2494/files/Libro_Abierto_-_Podcast_y_newsletter.png?v=1784838146" alt="">
     <p class="clip-source"><span class="pub">Libros787.com</span><span class="date">22 jul 2026</span></p>
     <h3 class="clip-headline">Podcast y newsletter: dos formatos que puedes incorporar a tu plataforma de autor</h3>
     <p class="clip-excerpt">La plataforma de autor es una herramienta útil para todo autor independiente que comparte su muchachito literario al mundo. Dos formatos que puedes explorar para incorporar a tu plataforma de autor y mercadear tu libro son el podcast y la newsletter.</p>
     <a class="clip-read" href="https://libros787.com/blogs/podcast/podcast-y-newsletter-dos-formatos-que-puedes-incorporar-a-tu-plataforma-de-autor" target="_blank" rel="noopener">Leer nota →</a>
   </div>
   <div class="clipping">
+    <img class="clip-image" src="https://cdn.shopify.com/s/files/1/2482/2494/files/Mariana_Gonzalez.png?v=1782335029" alt="">
     <p class="clip-source"><span class="pub">Libros787.com</span><span class="date">24 jun 2026</span></p>
     <h3 class="clip-headline">"Aquí ya hay un jardín" gana el 14to Premio El Barco de Vapor</h3>
     <p class="clip-excerpt">La escritora y editora Mariana González se convirtió en la ganadora de la décimo cuarta edición del Premio El Barco de Vapor Puerto Rico, uno de los principales galardones de la literatura infantil otorgados por la Fundación SM.</p>
