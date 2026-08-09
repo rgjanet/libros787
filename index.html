@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Enlaces</title>
+<title>Libros787 — Enlaces</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;0,900;1,400&display=swap" rel="stylesheet">
@@ -419,6 +419,34 @@
   }
   #lightbox .lb-close:hover{ background: var(--cream); color: var(--ink); }
 
+  /* video pop-out modal: video plays enlarged, centered over a dark backdrop */
+  #video-modal{
+    position:fixed; inset:0; background: rgba(28,26,21,0.92);
+    display:none; align-items:center; justify-content:center;
+    padding: 30px 20px; z-index: 110;
+  }
+  #video-modal.active{ display:flex; }
+  .video-modal-inner{
+    position:relative;
+    width: 100%;
+    max-width: 340px;
+    aspect-ratio: 9 / 16;
+    background: #000;
+    border-radius: 6px;
+    overflow:hidden;
+    box-shadow: 0 16px 44px rgba(0,0,0,0.5);
+  }
+  .video-modal-inner iframe{
+    position:absolute; inset:0; width:100%; height:100%; border:0;
+  }
+  #video-modal .lb-close{
+    position:absolute; top: 18px; right: 22px;
+    font-weight: 700; font-size: 12px; letter-spacing: 0.06em;
+    color: var(--cream); background:none; border: 1px solid var(--cream);
+    padding: 7px 12px; border-radius: 3px; cursor:pointer;
+  }
+  #video-modal .lb-close:hover{ background: var(--cream); color: var(--ink); }
+
   /* Recortes de prensa */
   .clipping{
     background: #fff;
@@ -537,7 +565,7 @@
   <div class="plate">
     <div class="plate-frame bare">
       <div class="plate-media video portrait">
-        <button class="ia-facade" type="button" onclick="cargarVideoIA(this)" data-src="https://archive.org/details/articulo-carla-720" aria-label="Reproducir video">
+        <button class="ia-facade" type="button" onclick="abrirVideoPopup(this)" data-src="https://archive.org/embed/articulo-carla-720" aria-label="Reproducir video">
           <img src="https://cdn.shopify.com/s/files/1/2482/2494/files/screen-articulo.png?v=1786292843" alt="" loading="lazy">
           <span class="play-btn">▶</span>
           <span class="overlay-text">
@@ -561,14 +589,14 @@
     <button class="sheet-frame" onclick="openLightbox('https://www.rgjanet.com/libros787/IMG_0761.png')"><img src="https://www.rgjanet.com/libros787/IMG_0761.png" alt="Foto 3" loading="lazy"></button>
   </div>
 
-  <p class="list-title">En la prensa</p>
+  <p class="list-title">En el blog</p>
 
   <!-- EDITAR: reemplaza publicación, fecha, titular, resumen y enlace. Copia el bloque para añadir más -->
   <!-- EDITAR: reemplaza la imagen de portada, publicación, fecha, titular, resumen y enlace -->
   <div class="clipping">
     <img class="clip-image" src="https://cdn.shopify.com/s/files/1/2482/2494/files/Carla_Torres_Davila.png?v=1785978297" alt="">
     <div class="clip-body">
-    <p class="clip-source"><span class="pub">Libros787.com</span><span class="date">5 ago 2026</span></p>
+    <p class="clip-source"><span class="pub">Libros787.com</span><span class="date">22 jul 2026</span></p>
     <h3 class="clip-headline">Entre el miedo y la valentía: la novela de Carla Torres Dávila sobre lo que vemos y callamos</h3>
     <p class="clip-excerpt">Hay historias que nacen de encuentros casuales. En el caso de Carla Torres Dávila, consejera profesional y autora de la novela ¿De qué lado estás?, comenzó con un desayuno en la Feria del Libro de Guadalajara. Allí, otra autora le recordó que en Puerto Rico existían certámenes literarios, instándole a participar. </p>
     <a class="clip-read" href="https://libros787.com/blogs/podcast/entre-el-miedo-y-la-valentia-la-novela-de-carla-torres-davila-sobre-lo-que-vemos-y-callamos" target="_blank" rel="noopener">Leer nota →</a>
@@ -604,7 +632,27 @@
     <img id="lightbox-img" src="" alt="">
   </div>
 
+  <div id="video-modal" onclick="if(event.target===this) cerrarVideoPopup()">
+    <button class="lb-close" onclick="cerrarVideoPopup()">cerrar ✕</button>
+    <div class="video-modal-inner" id="video-modal-inner"></div>
+  </div>
+
   <script>
+    function abrirVideoPopup(btn){
+      const src = btn.getAttribute('data-src');
+      const wrap = document.getElementById('video-modal-inner');
+      wrap.innerHTML = '';
+      const iframe = document.createElement('iframe');
+      iframe.src = src;
+      iframe.title = 'Video en Internet Archive';
+      iframe.allowFullscreen = true;
+      wrap.appendChild(iframe);
+      document.getElementById('video-modal').classList.add('active');
+    }
+    function cerrarVideoPopup(){
+      document.getElementById('video-modal').classList.remove('active');
+      document.getElementById('video-modal-inner').innerHTML = '';
+    }
     function openLightbox(src){
       document.getElementById('lightbox-img').src = src;
       document.getElementById('lightbox').classList.add('active');
@@ -614,7 +662,10 @@
       document.getElementById('lightbox-img').src = '';
     }
     document.addEventListener('keydown', function(e){
-      if(e.key === 'Escape') closeLightbox();
+      if(e.key === 'Escape'){
+        closeLightbox();
+        cerrarVideoPopup();
+      }
     });
   </script>
 
