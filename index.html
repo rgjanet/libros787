@@ -303,6 +303,82 @@
     letter-spacing: 0.03em;
     color: var(--green);
   }
+  .plate-eyebrow{
+    text-align:center;
+    font-weight: 700;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin: 10px 0 3px;
+  }
+  .plate-title{
+    text-align:center;
+    font-weight: 900;
+    font-size: 15px;
+    line-height: 1.3;
+    color: var(--ink);
+    margin: 0 0 4px;
+  }
+  /* click-to-load facade: defers the Internet Archive iframe until the
+     person actually wants to watch, so it doesn't compete for bandwidth
+     with the rest of the page on first load */
+  .ia-facade{
+    position:absolute;
+    inset:0;
+    cursor:pointer;
+    background: var(--ink);
+    border: none;
+    padding: 0;
+    width:100%;
+    height:100%;
+    display:block;
+  }
+  .ia-facade img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+    opacity: 0.8;
+  }
+  .ia-facade .play-btn{
+    position:absolute;
+    top:50%; left:50%;
+    transform:translate(-50%,-50%);
+    width: 56px; height:56px;
+    border-radius:50%;
+    background: rgba(28,26,21,0.55);
+    border: 2px solid var(--cream);
+    color: var(--cream);
+    font-size: 18px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+  .ia-facade .overlay-text{
+    position:absolute;
+    left:0; right:0; bottom:0;
+    padding: 34px 14px 12px;
+    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+    text-align:center;
+  }
+  .ia-facade .overlay-eyebrow{
+    font-weight: 700;
+    font-size: 10.5px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin: 0 0 3px;
+    display: block;
+  }
+  .ia-facade .overlay-title{
+    font-weight: 900;
+    font-size: 14px;
+    line-height: 1.25;
+    color: var(--cream);
+    margin: 0;
+    display: block;
+  }
 
   /* Hoja de contacto: gallery */
   .sheet-grid{
@@ -451,17 +527,26 @@
   <p class="list-title">Lo más reciente</p>
 
   <!-- EDITAR: video alojado en Internet Archive (gratis, sin límite de 100MB como GitHub).
-       Reemplaza TU_IDENTIFICADOR con el "identifier" de tu item —
-       lo encuentras en la URL: archive.org/details/TU_IDENTIFICADOR
-       Esta lámina también está en formato vertical (9:16); quita "portrait"
-       si tu video es horizontal. -->
+       - Reemplaza TU_IDENTIFICADOR con el "identifier" de tu item (2 lugares):
+         lo encuentras en la URL: archive.org/details/TU_IDENTIFICADOR
+       - Reemplaza la imagen "portada-video.jpg" con una miniatura del video
+         (el fotograma que quieras mostrar antes del play).
+       - Cambia el eyebrow ("Video") y el título por los tuyos.
+       El video real solo se carga cuando alguien toca el botón de play —
+       así no ralentiza la carga inicial de la página. -->
   <div class="plate">
     <div class="plate-frame bare">
       <div class="plate-media video portrait">
-        <iframe src="https://archive.org/download/articulo-carla-720/arti%CC%81culo%20carla%20720.mp4" title="Video en Internet Archive" allowfullscreen></iframe>
+        <button class="ia-facade" type="button" onclick="cargarVideoIA(this)" data-src="https://libros787.com/blogs/podcast/entre-el-miedo-y-la-valentia-la-novela-de-carla-torres-davila-sobre-lo-que-vemos-y-callamos" aria-label="Reproducir video">
+          <img src="https://cdn.shopify.com/s/files/1/2482/2494/files/screen-articulo.png?v=1786292843" alt="" loading="lazy">
+          <span class="play-btn">▶</span>
+          <span class="overlay-text">
+            <span class="overlay-eyebrow">Entrevista</span>
+            <span class="overlay-title">Entre el miedo y la valentía: la novela de Carla Torres Dávila sobre lo que vemos y callamos</span>
+          </span>
+        </button>
       </div>
     </div>
-    <p class="plate-caption" align="center">¿Alguna vez viste algo incorrecto y callaste? 👀</p>
     <a class="plate-link" href="https://libros787.com/blogs/podcast/entre-el-miedo-y-la-valentia-la-novela-de-carla-torres-davila-sobre-lo-que-vemos-y-callamos" target="_blank" rel="noopener">Escucha la entrevista →</a>
   </div>
 
