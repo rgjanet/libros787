@@ -573,6 +573,26 @@
   <div class="plate">
     <div class="plate-frame bare">
       <div class="plate-media video portrait">
+        <button class="ia-facade" type="button" onclick="abrirVideoPopup(this)" data-src="https://archive.org/download/art-carla-rev/art%20carla%20rev.mov" aria-label="Reproducir video">
+          <!-- EDITAR: por ahora el preview usa el video completo en bucle. Si tienes
+               un clip corto (5-10 segundos, sin audio) recortado del mismo video,
+               súbelo y reemplaza el src de abajo para que cargue más liviano. -->
+          <video class="preview-video" autoplay muted loop playsinline preload="auto">
+            <source src="https://archive.org/download/art-carla-rev/art%20carla%20rev.mov" type="video/mp4">
+          </video>
+          <span class="play-btn">▶</span>
+          <span class="overlay-text">
+            <span class="overlay-eyebrow">Reel</span>
+            <span class="overlay-title">Entrevista: Entre el miedo y la valentía</span>
+          </span>
+        </button>
+      </div>
+    </div>
+    <a class="plate-link" href="https://libros787.com/blogs/podcast/entre-el-miedo-y-la-valentia-la-novela-de-carla-torres-davila-sobre-lo-que-vemos-y-callamos" target="_blank" rel="noopener">Escucha la entrevista →</a>
+  </div>
+  <div class="plate">
+    <div class="plate-frame bare">
+      <div class="plate-media video portrait">
         <button class="ia-facade" type="button" onclick="abrirVideoPopup(this)" data-src="https://archive.org/download/llegamos-a-los-100-rev-2/llegamos%20a%20los%20100%20rev%202.mp4" aria-label="Reproducir video">
           <!-- EDITAR: por ahora el preview usa el video completo en bucle. Si tienes
                un clip corto (5-10 segundos, sin audio) recortado del mismo video,
